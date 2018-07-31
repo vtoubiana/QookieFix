@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+ 
+  "name": "QookieFix",
+  "version": "0.1.0",
+  "description": "Fix cookie consent",
+  "author": "Vincent Toubiana",
+ 
+  "content_scripts": [{
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": ["jquery.js","qookie.js"] ,
+            "run_at": "document_end",
+            "all_frames": true
+  }]
+}
