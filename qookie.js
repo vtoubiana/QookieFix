@@ -1,6 +1,6 @@
 
 function add_button(evt) {
-		if ( evt.target.firstChild.className === 'qc-cmp-ui-container') {
+		if ( evt.target !== undefined && evt.target.firstChild !== undefined && evt.target.firstChild.className === 'qc-cmp-ui-container') {
 			var qookie_div = $('#qcCmpButtons');
 			if ( qookie_div.length === 1) {
 				var qfix_button = $('#qcCmpButtonQookieFix');
