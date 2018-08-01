@@ -1,3 +1,10 @@
+var api;
+if (chrome == undefined) {
+    api = browser;
+} else {
+    api = chrome;
+}
+
 function addButton(mutations) {
   const qookiePopupShown = mutations.some(mutation => mutation.target.firstChild && mutation.target.firstChild.classList && mutation.target.firstChild.classList.contains("qc-cmp-ui-container"))
   if (qookiePopupShown) {
@@ -6,7 +13,7 @@ function addButton(mutations) {
       const qfixButton = document.getElementById("qcCmpButtonQookieFix");
       if (!qfixButton) {
         const newButton = document.createElement("button");
-        newButton.textContent = "Je refuse";
+        newButton.textContent = api.i18n.getMessage("refuseText");
         newButton.id = "qcCmpButtonQookieFix";
         newButton.name = "qc-cmp-button";
         newButton.className = "qc-cmp-button";
