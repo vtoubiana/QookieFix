@@ -11,7 +11,8 @@ function addButton(mutations) {
     const qookieDiv = document.getElementById("qcCmpButtons");
     if (qookieDiv) {
       const qfixButton = document.getElementById("qcCmpButtonQookieFix");
-      if (!qfixButton) {
+	  const qfixOptOutButton = document.getElementsByClassName("qc-cmp-button qc-cmp-secondary-button"); //Test if the publisher already includes an opt-out 
+      if (!qfixButton && !qfixOptOutButton.length) {
         const newButton = document.createElement("button");
         newButton.textContent = api.i18n.getMessage("refuseText");
         newButton.id = "qcCmpButtonQookieFix";
