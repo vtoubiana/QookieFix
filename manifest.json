@@ -14,5 +14,17 @@
             "js": ["qookie.js"] ,
             "run_at": "document_end",
             "all_frames": false
-  }]
+  }],
+
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "permissions": ["storage"],
+
+  "applications": {
+    "gecko": {
+      "id": "qookiefix@axel.leroy.sh"
+    }
+  }
 }
