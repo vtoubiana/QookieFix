@@ -2,12 +2,14 @@
   "manifest_version": 2,
 
   "name": "QookieFix",
-  "version": "0.1.22",
+  "version": "0.1.24",
   "description": "Fix cookie consent",
   "author": "Vincent Toubiana",
   "default_locale": "en",
   "icons": {"48": "icon48.png",
 			"128": "icon128.png"},
+			
+  "web_accessible_resources": ["script.js"],
   "content_scripts": [{
             "matches": [
                 "http://*/*",
@@ -15,6 +17,6 @@
             ],
             "js": ["qookie.js"] ,
             "run_at": "document_end",
-            "all_frames": false
+            "all_frames": true
   }]
 }
