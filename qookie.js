@@ -14,9 +14,9 @@ function addButton(mutations) {
   if (qookiePopupShown) {
 	const qookieDiv = document.getElementById("qcCmpButtons");
 	if (qookieDiv) {
-		const qfixButton = document.getElementById("qcCmpButtonQookieFix");
 		const qfixOptOutButton = document.getElementsByClassName("qc-cmp-button qc-cmp-secondary-button"); //Test if the publisher already includes an opt-out 
-		if (!qfixButton && !qfixOptOutButton.length) {
+		const qfixButton = document.getElementById("qcCmpButtonQookieFix");
+		if (!qfixButton && (!qfixOptOutButton.length ||  (qfixOptOutButton[0].onclick.toString() !== optoutFunction) )) {
 			const newButton = document.createElement("button");
 			newButton.textContent = "Refuse";
 			newButton.id = "qcCmpButtonQookieFix";
@@ -35,5 +35,6 @@ function addButton(mutations) {
 	}
 };
 
+const optoutFunction = 'function(){window.__cmpui("setAndSaveAllConsent",!1)}';
 const observer = new MutationObserver(addButton);
 observer.observe(document.body, { childList: true });
