@@ -18,14 +18,14 @@ function addButton(mutations) {
 		const qfixButton = document.getElementById("qcCmpButtonQookieFix");
 		if (!qfixButton && (!qfixOptOutButton.length ||  (qfixOptOutButton[0].onclick.toString() !== optoutFunction) )) {
 			const newButton = document.createElement("button");
-			newButton.textContent = "Refuse";
+			newButton.textContent = api.i18n.getMessage("refuseText");
 			newButton.id = "qcCmpButtonQookieFix";
 			newButton.name = "qc-cmp-button";
 			newButton.className = "qc-cmp-button";
 			document.getElementById("qcCmpButtons").appendChild(newButton);
 			var s = document.createElement('script');
-			// TODO: add "script.js" to web_accessible_resources in manifest.json
-			s.src = api.extension.getURL('script.js');
+			// Workaround from: https://stackoverflow.com/questions/9515704/insert-code-into-the-page-context-using-a-content-script
+			s.src = api.extension.getURL('QookieFixScript.js');
 			s.onload = function() {
 				this.remove();
 			};

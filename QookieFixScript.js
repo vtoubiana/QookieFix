@@ -1,5 +1,5 @@
 
-function hasAlreadyAnswered() {
+function _QookieFixhasAlreadyAnswered() {
 	if ( (document.cookie.indexOf('pubconsent') > 0) || (document.cookie.indexOf('euconsent=') > 0)) {
 		return true;
 	}
@@ -13,6 +13,6 @@ function hasAlreadyAnswered() {
 
 document.getElementById('qcCmpButtonQookieFix').setAttribute("onclick", 'window.__cmpui("setAndSaveAllConsent",!1)');
 
-if ( hasAlreadyAnswered() ) {
+if ( _QookieFixhasAlreadyAnswered() ) {
 	document.getElementById('qcCmpButtonQookieFix').click();
 } 
