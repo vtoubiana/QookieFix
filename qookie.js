@@ -16,7 +16,7 @@ function addButton(mutations) {
 	if (qookieDiv) {
 		const qfixOptOutButton = document.getElementsByClassName("qc-cmp-button qc-cmp-secondary-button"); //Test if the publisher already includes an opt-out 
 		const qfixButton = document.getElementById("qcCmpButtonQookieFix");
-		if (!qfixButton && (!qfixOptOutButton.length ||  (qfixOptOutButton[0].onclick.toString() !== optoutFunction) )) {
+		if (!qfixButton && (!qfixOptOutButton.length ||  qfixOptOutButton[0].onclick=== null || qfixOptOutButton[0].onclick.toString() !== optoutFunction) ) {
 			const newButton = document.createElement("button");
 			newButton.textContent = api.i18n.getMessage("refuseText");
 			newButton.id = "qcCmpButtonQookieFix";
