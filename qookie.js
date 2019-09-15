@@ -29,7 +29,8 @@ function addButton(mutations) {
 			s.onload = function() {
 				this.remove();
 			};
-			document.documentElement.appendChild(s); 
+			document.documentElement.appendChild(s);
+			observer.disconnect();			
 		}
 	  }
 	}
@@ -38,3 +39,6 @@ function addButton(mutations) {
 const optoutFunction = 'function(){window.__cmpui("setAndSaveAllConsent",!1)}';
 const observer = new MutationObserver(addButton);
 observer.observe(document.body, { childList: true });
+document.addEventListener("click", (event) => {
+    observer.disconnect()
+});
